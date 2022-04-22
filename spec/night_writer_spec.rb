@@ -1,7 +1,7 @@
 require './spec/spec_helper'
 
 RSpec.describe NightWriter do
-  let(:nightwriter) { NightWriter.new(input_file) }
+  let(:nightwriter) { NightWriter.new }
 
   it "exists" do
     expect(nightwriter).to be_a(NightWriter)

@@ -1,0 +1,3 @@
+class NightWriter
+
+end
