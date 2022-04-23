@@ -17,7 +17,7 @@ class NightWriter
   def to_braille
     @output_file = File.write(output, input_file.reverse)
   end
-
+  
 end
 
 # ifile = ARGV[0]
