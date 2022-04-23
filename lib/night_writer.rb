@@ -1,7 +1,12 @@
 class NightWriter
+  attr_reader :output_file_name
+
+  def initialize
+    @output_file_name = ARGV[1]
+  end
 
   def start
-    p "Created 'braille.txt' containing 256 characters"
+    p "Created '#{output_file_name}' containing 256 characters"
   end
 
 end
