@@ -15,4 +15,9 @@ RSpec.describe NightWriter do
     allow(nightwriter).to receive(:output_file_name).and_return('output_message.txt')
     expect(nightwriter.start).to eq("Created 'output_message.txt' containing 256 characters")
   end
+
+  it "can return the amount of characters from the input file" do
+    
+    expect(nightwriter.character_count).to eq(0)
+  end
 end
