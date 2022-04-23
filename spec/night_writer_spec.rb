@@ -5,7 +5,7 @@ require "rspec"
 require './lib/night_writer'
 
 RSpec.describe NightWriter do
-  let(:nightwriter) {NightWriter.new('message.txt', 'output_message.txt')}
+  let(:nightwriter) {NightWriter.new('spec_message.txt', 'output_message.txt')}
 
   it "exists" do
     expect(nightwriter).to be_a(NightWriter)
