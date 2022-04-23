@@ -1,12 +1,17 @@
 class NightWriter
-  attr_reader :output_file_name
+  attr_reader :output_file, :input_file
 
   def initialize
-    @output_file_name = ARGV[1]
+    @input_file = ARGV[0]
+    @output_file = ARGV[1]
   end
 
   def start
-    p "Created '#{output_file_name}' containing 256 characters"
+    p "Created '#{output_file}' containing 256 characters"
+  end
+
+  def character_count(file)
+    file.length
   end
 
 end
