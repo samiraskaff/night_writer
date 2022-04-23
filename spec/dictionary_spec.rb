@@ -15,4 +15,8 @@ RSpec.describe Dictionary do
   it "has readable attributes" do
     expect(dictionary.two_by_three_characters["a"]).to eq(["0.", "..", ".."])
   end
+
+  it "can translate input" do
+    expect(dictionary.translate("ab")).to eq([["0.", "..", ".."], ["0.", "0.", ".."]])
+  end
 end
