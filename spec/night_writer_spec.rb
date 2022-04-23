@@ -12,10 +12,10 @@ RSpec.describe NightWriter do
   end
 
   it "prints a message based on user input" do
-    expect(nightwriter.creation_message).to eq("Created 'output_message.txt' containing 18 characters")
+    expect(nightwriter.creation_message).to eq("Created 'output_message.txt' containing 501 characters")
   end
 
   it "can return the amount of characters from the created file" do
-    expect(nightwriter.character_count).to eq(18)
+    expect(nightwriter.character_count).to eq(501)
   end
 end

@@ -1,22 +1,27 @@
 class NightWriter
-  attr_reader :output_file, :input_file
+  attr_reader :output_file, :input_file, :output_file_name
 
-  def initialize(input_file, output_file)
-    @input_file = input_file
-    @output_file = output_file
+  def initialize(input, output)
+    @input_file = File.read(input)
+    @output_file_name = output
   end
 
   def creation_message
-    p "Created '#{output_file}' containing #{character_count} characters"
+    p "Created '#{output_file_name}' containing #{character_count} characters"
   end
 
   def character_count
-    output_file.length
+    input_file.length
+  end
+
+  def to_braille
+    @output_file = File.write(output, input_file.reverse)
   end
 
 end
 
-input_file = ARGV[0]
-output_file = ARGV[1]
-
-test = NightWriter.new(input_file, output_file)
+# ifile = ARGV[0]
+# ofile = ARGV[1]
+#
+# test = NightWriter.new(input_file, output_file)
+# test.creation_message
