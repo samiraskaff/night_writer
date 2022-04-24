@@ -17,8 +17,12 @@ class NightWriter
     input_file.length
   end
 
+  def braille_string
+    dictionary.format_translation(dictionary.translate(input_file))
+  end
+
   def write_to_braille
-    @output_file = File.write(output, format_translation(dictionary.translate(input_file)))
+    @output_file = File.write(output_file_name, braille_string)
   end
 
 end
