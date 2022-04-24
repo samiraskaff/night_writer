@@ -23,12 +23,7 @@ class NightWriter
 
   def write_to_braille
     @output_file = File.write(output_file_name, braille_string)
+    creation_message
   end
 
 end
-
-# ifile = ARGV[0]
-# ofile = ARGV[1]
-#
-# test = NightWriter.new(input_file, output_file)
-# test.creation_message
