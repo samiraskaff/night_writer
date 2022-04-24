@@ -11,8 +11,9 @@ RSpec.describe NightWriter do
     expect(nightwriter).to be_a(NightWriter)
   end
 
-  xit "prints a message based on user input" do
-    expect(nightwriter.creation_message).to eq("Created 'spec_braille.txt' containing 23 characters")
+  it "prints a message based on user input" do
+    allow(nightwriter).to receive(:input_file).and_return("ab")
+    expect(nightwriter.creation_message).to eq("Created 'spec_braille.txt' containing 2 characters")
   end
 
   it "can return the amount of characters from the created file" do
