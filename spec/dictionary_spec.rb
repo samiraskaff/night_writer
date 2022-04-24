@@ -19,4 +19,10 @@ RSpec.describe Dictionary do
   it "can translate input" do
     expect(dictionary.translate("ab")).to eq([["0.", "..", ".."], ["0.", "0.", ".."]])
   end
+
+  it "can format translations" do
+    expect(dictionary.format_translation(
+      [["0.", "..", ".."], ["0.", "0.", ".."]])
+    ).to eq("0.0.\n..0.\n....\n")
+  end
 end

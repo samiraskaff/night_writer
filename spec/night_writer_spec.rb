@@ -23,9 +23,4 @@ RSpec.describe NightWriter do
     expect(nightwriter.write_to_braille).to eq()
   end
 
-  it "can format translations" do
-    expect(nightwriter.format_translation(
-      [["0.", "..", ".."], ["0.", "0.", ".."]])
-    ).to eq("0.0.\n..0.\n....\n")
-  end
 end

@@ -41,4 +41,21 @@ class Dictionary
     end
     output_array
   end
+
+  def format_translation(input_translation)
+    output_string = ""
+    input_translation.each do |character_array|
+      output_string += character_array[0]
+    end
+    output_string += "\n"
+    input_translation.each do |character_array|
+      output_string += character_array[1]
+    end
+    output_string += "\n"
+    input_translation.each do |character_array|
+      output_string += character_array[2]
+    end
+    output_string += "\n"
+    output_string
+  end
 end
