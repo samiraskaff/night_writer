@@ -1,5 +1,5 @@
 class Dictionary
-  attr_reader :two_by_three_characters
+  attr_reader :two_by_three_characters, :output_string
 
   def initialize
     @two_by_three_characters = {
@@ -39,13 +39,14 @@ class Dictionary
       "-" => ["..", "..", "00"],
       " " => ["..", "..", ".."]
     }
+    @output_string = ""
   end
 
   def translate(input_string)
     output_array = []
-    input_string.scan(/.{1,40}/).join("\n").split("").each do |character|
+    input_string.split("").each do |character|
       if character == "\n"
-        output_array << ["\n", "\n", "\n"]
+        output_array << ["..", "..", ".."]
       elsif @two_by_three_characters.keys.include?(character)
         output_array << @two_by_three_characters[character].clone
       else
@@ -56,19 +57,21 @@ class Dictionary
   end
 
   def format_translation(input_translation)
-    output_string = ""
-    input_translation.each do |character_array|
-      output_string += character_array[0]
+    character_array = input_translation[0..39]
+    character_array.each do |character|
+      @output_string += character[0]
     end
-    output_string += "\n"
-    input_translation.each do |character_array|
-      output_string += character_array[1]
+    @output_string += "\n"
+    character_array.each do |character|
+      @output_string += character[1]
     end
-    output_string += "\n"
-    input_translation.each do |character_array|
-      output_string += character_array[2]
+    @output_string += "\n"
+    character_array.each do |character|
+      @output_string += character[2]
     end
-    output_string += "\n"
-    output_string
+    @output_string += "\n"
+    format_translation(input_translation[40..-1]) if input_translation.count > 40
+    @output_string
   end
+
 end
