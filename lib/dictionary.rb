@@ -43,9 +43,13 @@ class Dictionary
 
   def translate(input_string)
     output_array = []
-    input_string.split("").each do |character|
-      if @two_by_three_characters.keys.include?(character)
+    input_string.scan(/.{1,40}/).join("\n").split("").each do |character|
+      if character == "\n"
+        output_array << ["\n", "\n", "\n"]
+      elsif @two_by_three_characters.keys.include?(character)
         output_array << @two_by_three_characters[character].clone
+      else
+        raise "Your message contains characters not supported by this program"
       end
     end
     output_array
