@@ -20,6 +20,14 @@ RSpec.describe Dictionary do
     expect(dictionary.translate("ab")).to eq([["0.", "..", ".."], ["0.", "0.", ".."]])
   end
 
+  it "translates line breaks as spaces" do
+    expect(dictionary.translate("\n")).to eq([["..", "..", ".."]])
+  end
+
+  it "stops translating if there are unknown characters" do
+    expect(dictionary.translate("*")).to eq([])
+  end
+
   it "can format translations" do
     expect(dictionary.format_translation(
       [["0.", "..", ".."], ["0.", "0.", ".."]])
