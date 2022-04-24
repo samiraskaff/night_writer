@@ -14,7 +14,7 @@ class NightWriter
   end
 
   def character_count
-    input_file.length
+    input_file.delete("\n").length
   end
 
   def braille_string
