@@ -1,9 +1,12 @@
+require "./lib/dictionary"
+
 class NightWriter
-  attr_reader :output_file, :input_file, :output_file_name
+  attr_reader :output_file, :input_file, :output_file_name, :dictionary
 
   def initialize(input, output)
     @input_file = File.read(input)
     @output_file_name = output
+    @dictionary = Dictionary.new
   end
 
   def creation_message
@@ -11,17 +14,16 @@ class NightWriter
   end
 
   def character_count
-    input_file.length
+    input_file.delete("\n").length
   end
 
-  def to_braille
-    @output_file = File.write(output, input_file.reverse)
+  def braille_string
+    dictionary.format_translation(dictionary.translate(input_file))
+  end
+
+  def write_to_braille
+    @output_file = File.write(output_file_name, braille_string)
+    creation_message
   end
 
 end
-
-# ifile = ARGV[0]
-# ofile = ARGV[1]
-#
-# test = NightWriter.new(input_file, output_file)
-# test.creation_message
