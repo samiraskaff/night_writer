@@ -15,11 +15,16 @@ RSpec.describe NightWriter do
     expect(nightwriter.creation_message).to eq("Created 'spec_braille.txt' containing 23 characters")
   end
 
-  xit "can return the amount of characters from the created file" do
-    expect(nightwriter.character_count).to eq(23)
+  it "can return the amount of characters from the created file" do
+    allow(nightwriter).to receive(:input_file).and_return("ab")
+    expect(nightwriter.character_count).to eq(2)
   end
 
-  xit "can convert english to braille" do
+  it "can send create a formatted braille string from input" do
+    allow(nightwriter).to receive(:input_file).and_return("ab")
+    expect(nightwriter.braille_string).to eq("0.0.\n..0.\n....\n")
+  end
+  xit "can create braille file from input" do
     expect(nightwriter.write_to_braille).to eq()
   end
 
