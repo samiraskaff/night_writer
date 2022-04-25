@@ -66,8 +66,7 @@ class BrailleDictionary
       if @alphabet.keys.include?(character)
         @alphabet[character]
       else
-        p "Your message contains characters not supported by this program"
-        break
+        return "Your message contains characters not supported by this program"
       end
     end.join
   end

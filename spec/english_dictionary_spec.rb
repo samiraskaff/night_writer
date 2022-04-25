@@ -25,7 +25,7 @@ RSpec.describe EnglishDictionary do
   end
 
   it "stops translating if there are unknown characters" do
-    expect(dictionary.translate("*")).to eq([])
+    expect(dictionary.translate("*")).to eq("Your message contains characters not supported by this program")
   end
 
   it "can format translations" do
