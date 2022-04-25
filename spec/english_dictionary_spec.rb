@@ -3,13 +3,13 @@ SimpleCov.start
 
 require "rspec"
 require './lib/night_writer'
-require "./lib/dictionary"
+require "./lib/english_dictionary"
 
-RSpec.describe Dictionary do
-  let(:dictionary) {Dictionary.new}
+RSpec.describe EnglishDictionary do
+  let(:dictionary) {EnglishDictionary.new}
 
   it "exists" do
-    expect(dictionary).to be_a(Dictionary)
+    expect(dictionary).to be_a(EnglishDictionary)
   end
 
   it "has readable attributes" do

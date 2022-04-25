@@ -1,4 +1,4 @@
-class Dictionary
+class EnglishDictionary
   attr_reader :two_by_three_characters, :output_string
 
   def initialize

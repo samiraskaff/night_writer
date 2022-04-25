@@ -1,12 +1,12 @@
-require "./lib/english_dictionary"
+require "./lib/braille_dictionary"
 
-class NightWriter
+class NightReader
   attr_reader :output_file, :input_file, :output_file_name, :dictionary
 
   def initialize(input, output)
     @input_file = File.read(input)
     @output_file_name = output
-    @dictionary = EnglishDictionary.new
+    @dictionary = BrailleDictionary.new
   end
 
   def creation_message
@@ -14,15 +14,15 @@ class NightWriter
   end
 
   def character_count
-    input_file.delete("\n").length
+    input_file.delete("\n").length / 6
   end
 
-  def braille_string
-    dictionary.format_translation(dictionary.translate(input_file))
+  def english_string
+    dictionary.translate(dictionary.format_braille(dictionary.format_by_lines(input_file)))
   end
 
-  def write_to_braille
-    @output_file = File.write(output_file_name, braille_string)
+  def write_to_english
+    @output_file = File.write(output_file_name, english_string)
     creation_message
   end
 

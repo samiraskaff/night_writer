@@ -21,11 +21,11 @@ RSpec.describe NightWriter do
     expect(nightwriter.character_count).to eq(2)
   end
 
-  it "can send create a formatted braille string from input" do
+  it "can create a formatted braille string from input" do
     allow(nightwriter).to receive(:input_file).and_return("ab")
     expect(nightwriter.braille_string).to eq("0.0.\n..0.\n....\n")
   end
-  
+
   it "can create braille file from input" do
     allow(nightwriter).to receive(:input_file).and_return("ab")
     expect(nightwriter.write_to_braille).to eq("Created 'spec_braille.txt' containing 2 characters")
