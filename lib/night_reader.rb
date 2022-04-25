@@ -1,4 +1,4 @@
-
+require "./lib/braille_dictionary"
 
 class NightReader
   attr_reader :output_file, :input_file, :output_file_name, :dictionary
