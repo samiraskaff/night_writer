@@ -6,7 +6,7 @@ class NightReader
   def initialize(input, output)
     @input_file = File.read(input)
     @output_file_name = output
-    @dictionary = Dictionary.new
+    @dictionary = BrailleDictionary.new
   end
 
   def creation_message

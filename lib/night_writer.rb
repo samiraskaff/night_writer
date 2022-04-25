@@ -6,7 +6,7 @@ class NightWriter
   def initialize(input, output)
     @input_file = File.read(input)
     @output_file_name = output
-    @dictionary = Dictionary.new
+    @dictionary = EnglishDictionary.new
   end
 
   def creation_message
