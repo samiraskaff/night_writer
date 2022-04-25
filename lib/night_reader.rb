@@ -21,9 +21,9 @@ class NightReader
     dictionary.translate(dictionary.format_braille(dictionary.format_by_lines(input_file)))
   end
 
-  # def write_to_english
-  #   @output_file = File.write(output_file_name, english_string)
-  #   creation_message
-  # end
+  def write_to_english
+    @output_file = File.write(output_file_name, english_string)
+    creation_message
+  end
 
 end
