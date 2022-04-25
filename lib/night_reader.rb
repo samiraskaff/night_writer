@@ -6,7 +6,7 @@ class NightReader
   def initialize(input, output)
     @input_file = File.read(input)
     @output_file_name = output
-    # @dictionary = BrailleDictionary.new
+    @dictionary = BrailleDictionary.new
   end
 
   def creation_message
@@ -17,9 +17,9 @@ class NightReader
     input_file.delete("\n").length / 6
   end
 
-  # def english_string
-  #   dictionary.format_translation(dictionary.translate(input_file))
-  # end
+  def english_string
+    dictionary.translate(dictionary.format_braille(dictionary.format_by_lines(input_file)))
+  end
 
   # def write_to_english
   #   @output_file = File.write(output_file_name, english_string)
