@@ -19,9 +19,13 @@ RSpec.describe BrailleDictionary do
   it "can format a braille file into lines" do
     expect(dictionary.format_by_lines("0.0.\n..0.\n....\n")).to eq(["0.0.", "..0.", "...."])
   end
-  
+
   it "can format braille characters" do
     lines = dictionary.format_by_lines("0.0.\n..0.\n....\n")
     expect(dictionary.format_braille(lines)).to eq(["0.....", "0.0..."])
+  end
+
+  it "can translate an array of braille characters" do
+    expect(dictionary.translate(["0.....", "0.0..."])).to eq("ab")
   end
 end
