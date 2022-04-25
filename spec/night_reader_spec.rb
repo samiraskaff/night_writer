@@ -25,4 +25,9 @@ RSpec.describe NightReader do
     allow(nightreader).to receive(:input_file).and_return("0.0.\n..0.\n....\n")
     expect(nightreader.english_string).to eq("ab")
   end
+
+  it "can create english file from braille input" do
+    allow(nightreader).to receive(:input_file).and_return("0.0.\n..0.\n....\n")
+    expect(nightreader.write_to_english).to eq("Created 'spec_original.txt' containing 2 characters")
+  end
 end
