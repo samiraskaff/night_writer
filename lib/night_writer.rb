@@ -1,4 +1,4 @@
-require "./lib/dictionary"
+require "./lib/english_dictionary"
 
 class NightWriter
   attr_reader :output_file, :input_file, :output_file_name, :dictionary
