@@ -1,5 +1,5 @@
 class BrailleDictionary
-  attr_reader :alphabet
+  attr_reader :alphabet, :output_array
 
   def initialize
     @alphabet = {
@@ -40,6 +40,25 @@ class BrailleDictionary
       "....0." => "'",
       "....00" => "-"
     }
+    @output_array = []
+  end
+
+  def format_by_lines(input_braille_file)
+    @lines = input_braille_file.split("\n")
+  end
+
+  def format_braille(lines)
+    line_array = lines[0..2]
+    while line_array.join.length > 1
+      character_string = ""
+      line_array.each do |line|
+        character_string += line[0..1]
+        line.slice!(0..1)
+      end
+      output_array << character_string
+    end
+    format_braille(lines[3..-1]) if lines.count > 3
+    output_array
   end
 
 end
