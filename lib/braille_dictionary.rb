@@ -62,14 +62,16 @@ class BrailleDictionary
   end
 
   def translate(braille_characters)
-    braille_characters.map do |character|
+    translation = []
+    braille_characters.each do |character|
       if @alphabet.keys.include?(character)
-        @alphabet[character]
+        translation << @alphabet[character]
       else
-        p "Your message contains characters not supported by this program"
+        puts "Your message contains characters not supported by this program"
         break
       end
-    end.join
+    end
+    translation.join
   end
 
 end

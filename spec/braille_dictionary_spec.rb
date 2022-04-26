@@ -28,4 +28,8 @@ RSpec.describe BrailleDictionary do
   it "can translate an array of braille characters" do
     expect(dictionary.translate(["0.....", "0.0..."])).to eq("ab")
   end
+
+  it "stops translating if there is an unknown character" do
+    expect(dictionary.translate(["000000"])).to eq("")
+  end
 end
