@@ -50,7 +50,8 @@ class EnglishDictionary
       elsif @two_by_three_characters.keys.include?(character)
         output_array << @two_by_three_characters[character].clone
       else
-        return "Your message contains characters not supported by this program"
+        puts "Your message contains characters not supported by this program"
+        break
       end
     end
     output_array

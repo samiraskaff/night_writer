@@ -30,6 +30,6 @@ RSpec.describe BrailleDictionary do
   end
 
   it "stops translating if there is an unknown character" do
-    expect(dictionary.translate(["000000"])).to eq("Your message contains characters not supported by this program")
+    expect(dictionary.translate(["000000"])).to eq("")
   end
 end
